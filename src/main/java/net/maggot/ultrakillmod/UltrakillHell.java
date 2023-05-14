@@ -1,6 +1,7 @@
 package net.maggot.ultrakillmod;
 
 import com.mojang.logging.LogUtils;
+import net.maggot.ultrakillmod.item.ModCreativeModeTabs;
 import net.maggot.ultrakillmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -40,6 +41,9 @@ public class UltrakillHell {
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if(event.getTab() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.BLUE_SKULL);
+        }
+        if(event.getTab() == ModCreativeModeTabs.ULTRAKILL_TAB) {
             event.accept(ModItems.BLUE_SKULL);
         }
     }
