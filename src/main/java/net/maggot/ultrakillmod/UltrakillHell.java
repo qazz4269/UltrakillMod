@@ -1,6 +1,7 @@
 package net.maggot.ultrakillmod;
 
 import com.mojang.logging.LogUtils;
+import net.maggot.ultrakillmod.entity.ModEntities;
 import net.maggot.ultrakillmod.item.ModCreativeModeTabs;
 import net.maggot.ultrakillmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
@@ -28,6 +29,8 @@ public class UltrakillHell {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
