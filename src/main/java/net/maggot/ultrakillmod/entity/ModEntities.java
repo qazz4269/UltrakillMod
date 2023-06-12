@@ -17,7 +17,7 @@ public class ModEntities {
     public static final RegistryObject<EntityType<FilthEntity>> FILTH =
             ENTITY_TYPES.register("filth",
                     () -> EntityType.Builder.of(FilthEntity::new, MobCategory.CREATURE)
-                            .sized(1.0f, 1.0f)
+                            .sized(0.5f, 2.0f)
                             .build(new ResourceLocation(UltrakillHell.MOD_ID, "filth").toString()));
 
     public static void register(IEventBus eventBus) {

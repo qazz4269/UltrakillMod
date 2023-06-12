@@ -2,8 +2,11 @@ package net.maggot.ultrakillmod;
 
 import com.mojang.logging.LogUtils;
 import net.maggot.ultrakillmod.entity.ModEntities;
+import net.maggot.ultrakillmod.entity.client.FilthRenderer;
 import net.maggot.ultrakillmod.item.ModCreativeModeTabs;
 import net.maggot.ultrakillmod.item.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -55,7 +58,7 @@ public class UltrakillHell {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.FILTH.get(), FilthRenderer::new);
         }
     }
 }

@@ -15,16 +15,7 @@ public class FilthRenderer extends GeoEntityRenderer<FilthEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(FilthEntity animatable) {
-        return new ResourceLocation(UltrakillHell.MOD_ID, "textures/entity/tiger.png");
+        return new ResourceLocation(UltrakillHell.MOD_ID, "textures/entity/filth.png");
     }
 
-    @Override
-    public void render(FilthEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
-                       MultiBufferSource bufferSource, int packedLight) {
-        if(entity.isBaby()) {
-            poseStack.scale(0.4f, 0.4f, 0.4f);
-        }
-
-        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
-    }
 }
