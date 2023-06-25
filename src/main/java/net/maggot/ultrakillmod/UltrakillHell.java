@@ -46,11 +46,10 @@ public class UltrakillHell {
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.BLUE_SKULL);
-        }
+
         if(event.getTab() == ModCreativeModeTabs.ULTRAKILL_TAB) {
             event.accept(ModItems.BLUE_SKULL);
+            event.accept(ModItems.FILTH_SPAWN_EGG);
         }
     }
 
