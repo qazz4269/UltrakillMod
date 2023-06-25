@@ -1,5 +1,8 @@
 {
   "creativemodetab.ultrakill_tab": "Ultrakill Tab",
+
   "item.ultrakillmod.blue_skull": "Blue Skull",
-  "entity.ultrakillmod.filth": "Filth"
+
+  "entity.ultrakillmod.filth": "Filth",
+  "item.ultrakillmod.filth_spawn_egg": "Filth Spawn Egg"
 }
