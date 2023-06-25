@@ -1,7 +1,9 @@
 package net.maggot.ultrakillmod.item;
 
 import net.maggot.ultrakillmod.UltrakillHell;
+import net.maggot.ultrakillmod.entity.ModEntities;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,6 +15,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> BLUE_SKULL = ITEMS.register("blue_skull",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> FILTH_SPAWN_EGG = ITEMS.register("filth_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.FILTH, 0x9BA456, 0x5E6435,
+                    new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {
