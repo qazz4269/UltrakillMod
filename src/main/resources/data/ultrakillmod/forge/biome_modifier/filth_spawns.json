@@ -9,8 +9,8 @@
   ],
   "spawners": {
     "type": "ultrakillmod:filth",
-    "weight": 50,
+    "maxCount": 3,
     "minCount": 1,
-    "maxCount": 5
+    "weight": 500
   }
 }
