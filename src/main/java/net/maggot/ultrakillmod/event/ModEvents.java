@@ -4,6 +4,7 @@ import net.maggot.ultrakillmod.UltrakillHell;
 import net.maggot.ultrakillmod.entity.ModEntities;
 import net.maggot.ultrakillmod.entity.custom.FilthEntity;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -20,6 +21,6 @@ public class ModEvents {
     @SubscribeEvent
     public static void entitySpawnRestrictions(SpawnPlacementRegisterEvent event) {
         event.register(ModEntities.FILTH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FilthEntity::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+                Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 }
