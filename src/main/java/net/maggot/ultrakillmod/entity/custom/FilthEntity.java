@@ -54,7 +54,7 @@ public class FilthEntity extends Animal implements GeoEntity {
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
-        if(tAnimationState.isMoving()) {
+        if (tAnimationState.isMoving()) {
             tAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.filth.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
