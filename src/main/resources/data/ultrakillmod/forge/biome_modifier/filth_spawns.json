@@ -3,8 +3,7 @@
   "biomes": [
     "minecraft:nether_wastes"
   ],
-  "spawners":
-  {
+  "spawners": {
     "type": "ultrakillmod:filth",
     "weight": 100,
     "minCount": 3,
