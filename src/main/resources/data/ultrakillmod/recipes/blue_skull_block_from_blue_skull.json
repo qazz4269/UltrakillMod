@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "ultrakillmob:blue_skull"
+      "item": "ultrakillmod:blue_skull"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
     "###"
   ],
   "result": {
-    "item": "ultrakillmob:blue_skull_block"
+    "item": "ultrakillmod:blue_skull_block"
   },
   "show_notification": true
 }
