@@ -1,6 +1,8 @@
 package net.maggot.ultrakillmod.datagen;
 
 import net.maggot.ultrakillmod.UltrakillHell;
+import net.maggot.ultrakillmod.block.ModBlocks;
+import net.maggot.ultrakillmod.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +23,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        oreSmelting(consumer, List.of(ModItems.BLUE_SKULL.get()), RecipeCategory.MISC,
+                ModItems.RED_SKULL.get(), 0.7f, 200, "red_skull");
 
+        nineBlockStorageRecipes(consumer, RecipeCategory.BUILDING_BLOCKS, ModItems.BLUE_SKULL.get(), RecipeCategory.MISC,
+                ModBlocks.BLUE_SKULL_BLOCK.get());
 
         // ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_OPAL.get())
         //         .requires(ModBlocks.BLACK_OPAL_BLOCK.get())

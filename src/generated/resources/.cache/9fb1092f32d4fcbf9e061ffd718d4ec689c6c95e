@@ -1,0 +1,7 @@
+// 1.19.4	2023-07-08T14:38:40.2104123	Recipes
+1ac7e03158b06ab2ace970431e103876c5950949 data/ultrakillmod/advancements/recipes/building_blocks/blue_skull.json
+a7c245d340b0b3952ac9047a55e1cbd129661d75 data/ultrakillmod/advancements/recipes/misc/blue_skull_block.json
+8377ccac637e54e0df3f3024ea552279a489ff3f data/ultrakillmod/advancements/recipes/misc/red_skull_from_smelting_blue_skull.json
+26bd6d1d181c603731d43447010a3175d058e2ca data/ultrakillmod/recipes/blue_skull.json
+d7d80b314294f82b2f82dba382ced8a7c743da9c data/ultrakillmod/recipes/blue_skull_block.json
+c14c6afb83bae8ff6308bfe070cd1aff78bf5ff3 data/ultrakillmod/recipes/red_skull_from_smelting_blue_skull.json

@@ -1,6 +1,7 @@
 package net.maggot.ultrakillmod.datagen;
 
 import net.maggot.ultrakillmod.UltrakillHell;
+import net.maggot.ultrakillmod.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -16,6 +17,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         //add here
+        blockWithItem(ModBlocks.BLUE_SKULL_BLOCK);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
