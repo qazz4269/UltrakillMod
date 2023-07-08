@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "red_skull",
+  "ingredient": {
+    "item": "ultrakillmod:blue_skull"
+  },
+  "result": "ultrakillmod:red_skull"
+}
