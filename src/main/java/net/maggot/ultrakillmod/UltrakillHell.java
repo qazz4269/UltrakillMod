@@ -1,6 +1,7 @@
 package net.maggot.ultrakillmod;
 
 import com.mojang.logging.LogUtils;
+import net.maggot.ultrakillmod.block.ModBlocks;
 import net.maggot.ultrakillmod.entity.ModEntities;
 import net.maggot.ultrakillmod.entity.client.FilthRenderer;
 import net.maggot.ultrakillmod.item.ModCreativeModeTabs;
@@ -32,6 +33,7 @@ public class UltrakillHell {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         ModEntities.register(modEventBus);
 
@@ -50,6 +52,7 @@ public class UltrakillHell {
         if(event.getTab() == ModCreativeModeTabs.ULTRAKILL_TAB) {
             event.accept(ModItems.BLUE_SKULL);
             event.accept(ModItems.FILTH_SPAWN_EGG);
+            event.accept(ModBlocks.BLUE_SKULL_BLOCK);
         }
     }
 

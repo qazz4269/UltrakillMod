@@ -1,7 +1,7 @@
 {
   "type": "forge:add_spawns",
   "biomes": [
-    "minecraft:nether_wastes"
+    "minecraft:savanna"
   ],
   "spawners": {
     "type": "ultrakillmod:filth",

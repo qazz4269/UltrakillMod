@@ -3,6 +3,8 @@
 
   "item.ultrakillmod.blue_skull": "Blue Skull",
 
+  "block.ultrakillmod.blue_skull_block": "Blue Skull Block",
+
   "entity.ultrakillmod.filth": "Filth",
   "item.ultrakillmod.filth_spawn_egg": "Filth Spawn Egg"
 }

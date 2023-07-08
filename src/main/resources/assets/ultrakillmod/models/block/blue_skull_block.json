@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ultrakillmod:block/blue_skull_block"
+  }
+}
