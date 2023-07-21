@@ -10,7 +10,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -18,25 +17,25 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.Ghast;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.LargeFireball;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 
 
 import java.util.EnumSet;
 
 public class MauriceEntity extends FlyingMob implements GeoEntity {
-    private static final EntityDataAccessor<Boolean> DATA_IS_CHARGING = SynchedEntityData.defineId(Ghast.class, EntityDataSerializers.BOOLEAN);
+    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private static final EntityDataAccessor<Boolean> DATA_IS_CHARGING = SynchedEntityData.defineId(MauriceEntity.class, EntityDataSerializers.BOOLEAN);
     private int explosionPower = 1;
 
-    protected MauriceEntity(EntityType<? extends FlyingMob> p_20806_, Level p_20807_) {
+    public MauriceEntity(EntityType<? extends FlyingMob> p_20806_, Level p_20807_) {
         super(p_20806_, p_20807_);
         this.xpReward = 5;
         this.moveControl = new MauriceEntity.GhastMoveControl(this);
@@ -141,7 +140,7 @@ public class MauriceEntity extends FlyingMob implements GeoEntity {
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return null;
+        return cache;
     }
 
     static class GhastLookGoal extends Goal {

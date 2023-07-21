@@ -1,0 +1,17 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.maurice.walk": {
+			"loop": true,
+			"animation_length": 0.24
+		},
+		"animation.maurice.idle": {
+			"loop": true,
+			"animation_length": 0.24
+		},
+		"animation.maurice.attck": {
+			"animation_length": 0.24
+		}
+	},
+	"geckolib_format_version": 2
+}
