@@ -21,9 +21,9 @@ public class ModEntities {
                             .build(new ResourceLocation(UltrakillHell.MOD_ID, "filth").toString()));
 
     public static final RegistryObject<EntityType<MauriceEntity>> MAURICE =
-            ENTITY_TYPES.register("Maurice",
-                    () -> EntityType.Builder.of(MauriceEntity::new, MobCategory.MONSTER).sized(0.5f, 2.0f)
-                            .build(new ResourceLocation(UltrakillHell.MOD_ID, "Maurice").toString()));
+            ENTITY_TYPES.register("maurice",
+                    () -> EntityType.Builder.of(MauriceEntity::new, MobCategory.MONSTER).sized(1.0f, 1.0f)
+                            .build(new ResourceLocation(UltrakillHell.MOD_ID, "maurice").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

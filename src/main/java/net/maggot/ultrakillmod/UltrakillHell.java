@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.maggot.ultrakillmod.block.ModBlocks;
 import net.maggot.ultrakillmod.entity.ModEntities;
 import net.maggot.ultrakillmod.entity.client.FilthRenderer;
+import net.maggot.ultrakillmod.entity.client.MauriceRenderer;
 import net.maggot.ultrakillmod.item.ModCreativeModeTabs;
 import net.maggot.ultrakillmod.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -62,6 +63,7 @@ public class UltrakillHell {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.FILTH.get(), FilthRenderer::new);
+            EntityRenderers.register(ModEntities.MAURICE.get(), MauriceRenderer::new);
         }
     }
 }

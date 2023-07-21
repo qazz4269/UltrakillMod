@@ -3,6 +3,7 @@ package net.maggot.ultrakillmod.event;
 import net.maggot.ultrakillmod.UltrakillHell;
 import net.maggot.ultrakillmod.entity.ModEntities;
 import net.maggot.ultrakillmod.entity.custom.FilthEntity;
+import net.maggot.ultrakillmod.entity.custom.MauriceEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
@@ -17,11 +18,15 @@ public class ModEvents {
     @SubscribeEvent
     public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(ModEntities.FILTH.get(), FilthEntity.setAttributes());
+        event.put(ModEntities.MAURICE.get(), FilthEntity.setAttributes());
     }
+
 
     @SubscribeEvent
     public static void entitySpawnRestrictions(SpawnPlacementRegisterEvent event) {
         event.register(ModEntities.FILTH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 FilthEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(ModEntities.MAURICE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                MauriceEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 }
