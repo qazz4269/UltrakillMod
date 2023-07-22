@@ -15,13 +15,11 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, UltrakillHell.MOD_ID);
 
-    public static final RegistryObject<EntityType<FilthEntity>> FILTH =
-            ENTITY_TYPES.register("filth",
+    public static final RegistryObject<EntityType<FilthEntity>> FILTH = ENTITY_TYPES.register("filth",
                     () -> EntityType.Builder.of(FilthEntity::new, MobCategory.MONSTER).sized(0.5f, 2.0f)
                             .build(new ResourceLocation(UltrakillHell.MOD_ID, "filth").toString()));
 
-    public static final RegistryObject<EntityType<MauriceEntity>> MAURICE =
-            ENTITY_TYPES.register("maurice",
+    public static final RegistryObject<EntityType<MauriceEntity>> MAURICE = ENTITY_TYPES.register("maurice",
                     () -> EntityType.Builder.of(MauriceEntity::new, MobCategory.MONSTER).sized(1.0f, 1.0f)
                             .build(new ResourceLocation(UltrakillHell.MOD_ID, "maurice").toString()));
 
