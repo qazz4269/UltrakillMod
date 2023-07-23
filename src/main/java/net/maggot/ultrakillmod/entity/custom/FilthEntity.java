@@ -22,7 +22,7 @@ import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
 public class FilthEntity extends Animal implements GeoEntity {
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     public FilthEntity(EntityType<? extends FilthEntity> entityType, Level level) {
         super(entityType, level);
@@ -50,6 +50,10 @@ public class FilthEntity extends Animal implements GeoEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
 
+    }
+
+    protected boolean shouldDespawnInPeaceful() {
+        return true;
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
