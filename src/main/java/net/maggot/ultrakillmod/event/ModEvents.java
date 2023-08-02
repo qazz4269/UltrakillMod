@@ -19,7 +19,6 @@ public class ModEvents {
         event.put(ModEntities.MAURICE.get(), MauriceEntity.setAttributes());
     }
 
-
     @SubscribeEvent
     public static void entitySpawnRestrictions(SpawnPlacementRegisterEvent event) {
         event.register(ModEntities.FILTH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
