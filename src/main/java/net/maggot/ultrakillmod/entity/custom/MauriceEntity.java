@@ -39,7 +39,7 @@ public class MauriceEntity extends Monster implements GeoEntity {
         return Monster.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0f)
-                .add(Attributes.ATTACK_SPEED, 0.8f)
+                .add(Attributes.ATTACK_SPEED, 0.5f)
                 .add(Attributes.MOVEMENT_SPEED, 0.4f)
                 .add(Attributes.FOLLOW_RANGE, 48.0D).build();
     }
@@ -89,12 +89,7 @@ public class MauriceEntity extends Monster implements GeoEntity {
             if (this.random.nextInt(24) == 0 && !this.isSilent()) {
                 this.level.playLocalSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, SoundEvents.BLAZE_BURN, this.getSoundSource(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
             }
-
-            for(int i = 0; i < 2; ++i) {
-                this.level.addParticle(ParticleTypes.LARGE_SMOKE, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
-            }
         }
-
         super.aiStep();
     }
 
@@ -118,9 +113,6 @@ public class MauriceEntity extends Monster implements GeoEntity {
     /**
      * Returns {@code true} if the entity is on fire. Used by render to add the fire effect on rendering.
      */
-    public boolean isOnFire() {
-        return this.isCharged();
-    }
 
     private boolean isCharged() {
         return (this.entityData.get(DATA_FLAGS_ID) & 1) != 0;
@@ -187,7 +179,7 @@ public class MauriceEntity extends Monster implements GeoEntity {
         public void tick() {
             --this.attackTime;
             LivingEntity livingentity = this.mauriceEntity.getTarget();
-            if (livingentity != null) {
+            if (livingentity != null) { //pass
                 boolean flag = this.mauriceEntity.getSensing().hasLineOfSight(livingentity);
                 if (flag) {
                     this.lastSeen = 0;
@@ -202,49 +194,50 @@ public class MauriceEntity extends Monster implements GeoEntity {
                     }
 
                     if (this.attackTime <= 0) {
-                        this.attackTime = 20;
+                        this.attackTime = 5;
                         this.mauriceEntity.doHurtTarget(livingentity);
                     }
 
                     this.mauriceEntity.getMoveControl().setWantedPosition(livingentity.getX(), livingentity.getY(), livingentity.getZ(), 1.0D);
-                } else if (d0 < this.getFollowDistance() * this.getFollowDistance() && flag) {
+                }
+                else if (d0 < this.getFollowDistance() * this.getFollowDistance() && flag) {
                     double d1 = livingentity.getX() - this.mauriceEntity.getX();
                     double d2 = livingentity.getY(0.5D) - this.mauriceEntity.getY(0.5D);
                     double d3 = livingentity.getZ() - this.mauriceEntity.getZ();
                     if (this.attackTime <= 0) {
                         ++this.attackStep;
                         if (this.attackStep == 1) {
-                            this.attackTime = 60;
+                            this.attackTime = 5;
                             this.mauriceEntity.setCharged(true);
-                        } else if (this.attackStep <= 4) {
-                            this.attackTime = 6;
-                        } else {
-                            this.attackTime = 100;
+                        }
+                        else if (this.attackStep <= 4) {
+                            this.attackTime = 5;
+                        }
+                        else {
+                            this.attackTime = 5;
                             this.attackStep = 0;
                             this.mauriceEntity.setCharged(false);
                         }
 
                         if (this.attackStep > 1) {
-                            double d4 = Math.sqrt(Math.sqrt(d0)) * 0.5D;
+                            double d4 = Math.sqrt(Math.sqrt(d0)) * 0.1D;
                             if (!this.mauriceEntity.isSilent()) {
                                 this.mauriceEntity.level.levelEvent((Player)null, 1018, this.mauriceEntity.blockPosition(), 0);
                             }
 
-                            for(int i = 0; i < 1; ++i) {
-                                SmallFireball smallfireball = new SmallFireball(this.mauriceEntity.level, this.mauriceEntity, this.mauriceEntity.getRandom().triangle(d1, 2.297D * d4), d2, this.mauriceEntity.getRandom().triangle(d3, 2.297D * d4));
+                                SmallFireball smallfireball = new SmallFireball(this.mauriceEntity.level, this.mauriceEntity, this.mauriceEntity.getRandom().triangle(d1, 0.1D * d4), d2, this.mauriceEntity.getRandom().triangle(d3, 0.1D * d4));
                                 smallfireball.setPos(smallfireball.getX(), this.mauriceEntity.getY(0.5D) + 0.5D, smallfireball.getZ());
                                 this.mauriceEntity.level.addFreshEntity(smallfireball);
-                            }
                         }
                     }
-
                     this.mauriceEntity.getLookControl().setLookAt(livingentity, 10.0F, 10.0F);
-                } else if (this.lastSeen < 5) {
+                }
+                else if (this.lastSeen < 5) {
                     this.mauriceEntity.getMoveControl().setWantedPosition(livingentity.getX(), livingentity.getY(), livingentity.getZ(), 1.0D);
                 }
 
                 super.tick();
-            }
+            }//pass
         }
 
         private double getFollowDistance() {
