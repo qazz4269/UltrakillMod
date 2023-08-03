@@ -251,6 +251,7 @@ public class MauriceEntity extends Monster implements GeoEntity {
             return this.mauriceEntity.getAttributeValue(Attributes.FOLLOW_RANGE);
         }
     }
+
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
