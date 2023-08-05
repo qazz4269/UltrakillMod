@@ -1,6 +1,5 @@
 package net.maggot.ultrakillmod.entity.custom;
 
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -90,6 +89,9 @@ public class MauriceEntity extends Monster implements GeoEntity {
                 this.level.playLocalSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, SoundEvents.BLAZE_BURN, this.getSoundSource(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
             }
         }
+
+
+
         super.aiStep();
     }
 
@@ -108,14 +110,6 @@ public class MauriceEntity extends Monster implements GeoEntity {
         }
 
         super.customServerAiStep();
-    }
-
-    /**
-     * Returns {@code true} if the entity is on fire. Used by render to add the fire effect on rendering.
-     */
-
-    private boolean isCharged() {
-        return (this.entityData.get(DATA_FLAGS_ID) & 1) != 0;
     }
 
     void setCharged(boolean pCharged) {
@@ -179,7 +173,7 @@ public class MauriceEntity extends Monster implements GeoEntity {
         public void tick() {
             --this.attackTime;
             LivingEntity livingentity = this.mauriceEntity.getTarget();
-            if (livingentity != null) { //pass
+            if (livingentity != null) {
                 boolean flag = this.mauriceEntity.getSensing().hasLineOfSight(livingentity);
                 if (flag) {
                     this.lastSeen = 0;
@@ -222,7 +216,7 @@ public class MauriceEntity extends Monster implements GeoEntity {
                         if (this.attackStep > 1) {
                             double d4 = Math.sqrt(Math.sqrt(d0)) * 0.1D;
                             if (!this.mauriceEntity.isSilent()) {
-                                this.mauriceEntity.level.levelEvent((Player)null, 1018, this.mauriceEntity.blockPosition(), 0);
+                                this.mauriceEntity.level.levelEvent(null, 1018, this.mauriceEntity.blockPosition(), 0);
                             }
 
                                 SmallFireball smallfireball = new SmallFireball(this.mauriceEntity.level, this.mauriceEntity, this.mauriceEntity.getRandom().triangle(d1, 0.1D * d4), d2, this.mauriceEntity.getRandom().triangle(d3, 0.1D * d4));
@@ -237,16 +231,22 @@ public class MauriceEntity extends Monster implements GeoEntity {
                 }
 
                 super.tick();
-            }//pass
+            }
         }
 
         private double getFollowDistance() {
             return this.mauriceEntity.getAttributeValue(Attributes.FOLLOW_RANGE);
         }
     }
-
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+
+    public boolean causeFallDamage(float distance, float damageMultiplier, DamageSource source) {
+        // Do nothing to prevent fall damage
+        return false;
+    }
+
+
 }

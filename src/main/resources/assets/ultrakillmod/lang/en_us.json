@@ -7,7 +7,8 @@
   "block.ultrakillmod.blue_skull_block": "Blue Skull Block",
 
   "entity.ultrakillmod.filth": "Filth",
-  "entity.ultrakillmod.maurice": "Maurice",
+  "entity.ultrakillmod.maurice": "Malicious Face",
 
-  "item.ultrakillmod.filth_spawn_egg": "Filth Spawn Egg"
+  "item.ultrakillmod.filth_spawn_egg": "Filth Spawn Egg",
+  "item.ultrakillmod.maurice_spawn_egg": "Malicious Face Egg"
 }

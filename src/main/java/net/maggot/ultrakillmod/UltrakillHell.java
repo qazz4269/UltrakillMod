@@ -54,6 +54,7 @@ public class UltrakillHell {
             event.accept(ModItems.BLUE_SKULL);
             event.accept(ModItems.RED_SKULL);
             event.accept(ModItems.FILTH_SPAWN_EGG);
+            event.accept(ModItems.MAURICE_SPAWN_EGG);
             event.accept(ModBlocks.BLUE_SKULL_BLOCK);
         }
     }
