@@ -52,6 +52,15 @@ public class StrayUltrakillEntity extends Animal implements GeoEntity {
 
     }
 
+    private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState) {
+        if(this.swinging && tAnimationState.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
+            tAnimationState.getController().forceAnimationReset();
+            tAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.stray_ultrakill.attack", Animation.LoopType.PLAY_ONCE));
+            this.swinging = false;
+        }
+        return PlayState.CONTINUE;
+    }
+
     protected boolean shouldDespawnInPeaceful() {
         return true;
     }
