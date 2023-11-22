@@ -1,7 +1,6 @@
 package net.maggot.ultrakillmod.entity.client;
 
 import net.maggot.ultrakillmod.UltrakillHell;
-import net.maggot.ultrakillmod.entity.custom.FilthEntity;
 import net.maggot.ultrakillmod.entity.custom.StrayUltrakillEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
