@@ -49,7 +49,7 @@ public class StrayUltrakillEntity extends Animal implements GeoEntity {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
-
+        controllerRegistrar.add(new AnimationController<>(this, "attackController", 0, this::attackPredicate));
     }
 
     private <T extends GeoAnimatable> PlayState attackPredicate(AnimationState<T> tAnimationState) {
