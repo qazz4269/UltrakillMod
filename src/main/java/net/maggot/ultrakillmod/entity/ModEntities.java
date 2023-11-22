@@ -19,6 +19,11 @@ public class ModEntities {
                     () -> EntityType.Builder.of(FilthEntity::new, MobCategory.MONSTER).sized(0.5f, 2.0f)
                             .build(new ResourceLocation(UltrakillHell.MOD_ID, "filth").toString()));
 
+    public static final RegistryObject<EntityType<FilthEntity>> STRAY_ULTRAKILL = ENTITY_TYPES.register("stray_ultrakill",
+            () -> EntityType.Builder.of(FilthEntity::new, MobCategory.MONSTER).sized(0.5f, 2.0f)
+                    .build(new ResourceLocation(UltrakillHell.MOD_ID, "stray_ultrakill").toString()));
+
+
     public static final RegistryObject<EntityType<MauriceEntity>> MAURICE = ENTITY_TYPES.register("maurice",
                     () -> EntityType.Builder.of(MauriceEntity::new, MobCategory.MONSTER).sized(1.0f, 1.0f)
                             .build(new ResourceLocation(UltrakillHell.MOD_ID, "maurice").toString()));

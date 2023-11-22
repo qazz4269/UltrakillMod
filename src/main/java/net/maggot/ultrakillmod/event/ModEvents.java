@@ -4,6 +4,7 @@ import net.maggot.ultrakillmod.UltrakillHell;
 import net.maggot.ultrakillmod.entity.ModEntities;
 import net.maggot.ultrakillmod.entity.custom.FilthEntity;
 import net.maggot.ultrakillmod.entity.custom.MauriceEntity;
+import net.maggot.ultrakillmod.entity.custom.StrayUltrakillEntity;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -17,6 +18,7 @@ public class ModEvents {
     public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(ModEntities.FILTH.get(), FilthEntity.setAttributes());
         event.put(ModEntities.MAURICE.get(), MauriceEntity.setAttributes());
+        event.put(ModEntities.STRAY_ULTRAKILL.get(), MauriceEntity.setAttributes());
     }
 
     @SubscribeEvent
@@ -25,5 +27,7 @@ public class ModEvents {
                 FilthEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
         event.register(ModEntities.MAURICE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 MauriceEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(ModEntities.STRAY_ULTRAKILL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                StrayUltrakillEntity::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 }
