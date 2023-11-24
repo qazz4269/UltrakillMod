@@ -18,7 +18,7 @@ public class ModEvents {
     public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
         event.put(ModEntities.FILTH.get(), FilthEntity.setAttributes());
         event.put(ModEntities.MAURICE.get(), MauriceEntity.setAttributes());
-        event.put(ModEntities.STRAY_ULTRAKILL.get(), MauriceEntity.setAttributes());
+        event.put(ModEntities.STRAY_ULTRAKILL.get(), StrayUltrakillEntity.setAttributes());
     }
 
     @SubscribeEvent
